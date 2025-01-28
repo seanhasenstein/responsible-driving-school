@@ -1,0 +1,211 @@
+.modal {
+  max-width: 45rem;
+  .contactUsModal {
+    .header {
+      padding: 0 0 1.8rem;
+      border-bottom: 1px solid #d6d6d6;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .title {
+        font-family: var(--font-inter);
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        color: #0a0a0a;
+      }
+      .closeButton {
+        padding: 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fafaf8;
+        border: 1px solid #d6d6d6;
+        border-radius: 3px;
+        transition: all 0.2s ease;
+        .xIcon {
+          height: 1.8rem;
+          width: 1.8rem;
+          color: #374151;
+          transition: all 0.2s ease;
+        }
+        &:hover {
+          background-color: #f2f2ed;
+          border-color: #c2c2c2;
+          .xIcon {
+            color: #272e3a;
+          }
+        }
+      }
+    }
+    .description {
+      margin: 1.6rem 0 0;
+      font-family: var(--font-inter);
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #262626;
+      .faqButton {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        font-family: var(--font-inter);
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: var(--linkColor);
+        text-decoration: underline;
+      }
+    }
+    .sectionTitle {
+      position: relative;
+      font-family: var(--font-inter);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+      .span {
+        position: relative;
+        padding: 0 1.6rem 0 0;
+        background-color: #fafaf8;
+        z-index: 2;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #d6d6d6;
+        z-index: 0;
+      }
+    }
+    .contactInfo {
+      margin: 2.8rem 0 0;
+      .name {
+        margin: 2rem 0 0;
+        font-family: var(--font-inter);
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        color: #0a0a0a;
+      }
+      .row {
+        margin: 1.4rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem 0;
+      }
+      .phone,
+      .email,
+      .address {
+        font-family: var(--font-inter);
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: #262626;
+        .link:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .contactForm {
+      margin: 3.2rem 0 0;
+      .formItem {
+        margin: 2rem 0 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        .label {
+          font-family: var(--font-inter);
+          font-size: 1.2rem;
+          font-weight: 500;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #0a0a0a;
+        }
+        .textInput,
+        .textArea {
+          margin: 0.8rem 0 0;
+          padding: 1.2rem;
+          background-color: #fff;
+          border: 1px solid #d6d6d6;
+          border-radius: 4px;
+          font-family: var(--font-inter);
+        }
+        .textArea {
+          resize: vertical;
+          min-height: 12rem;
+        }
+        .validationError {
+          margin: 0.8rem 0 0;
+          font-family: var(--font-inter);
+          font-size: 1.2rem;
+          font-weight: 500;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #cf1717;
+        }
+      }
+      .submitButton {
+        position: relative;
+        margin: 1.6rem 0 0;
+        padding: 0;
+        height: 3.4rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #2b2b2b;
+        border: none;
+        border-radius: 4px;
+        font-family: var(--font-inter);
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        color: #fff;
+        transition: all 0.2s ease;
+        &:hover {
+          background-color: #1e1e1e;
+        }
+      }
+      .disclaimers {
+        margin: 4rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem 0;
+        .p {
+          font-family: var(--font-inter);
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 150%;
+          letter-spacing: -0.01em;
+          color: #4b5563;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 360px) {
+  .modal {
+    .contactUsModal {
+      .contactInfo {
+        .row {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 0;
+        }
+      }
+    }
+  }
+}

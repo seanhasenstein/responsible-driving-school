@@ -1,0 +1,181 @@
+.faqs {
+  margin: 3.2rem auto 0;
+  padding: 3.2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .questionIcon {
+    flex-shrink: 0;
+    margin: 0 auto;
+    height: 3.6rem;
+    width: 3.6rem;
+    color: #374151;
+  }
+  .title {
+    margin: 1rem auto 0;
+    font-family: var(--font-inter);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+  .description {
+    margin: 1.2rem auto 0;
+    max-width: 29.1rem;
+    width: 100%;
+    font-family: var(--font-inter);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #404040;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: -0.01em;
+    .contactBtn {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      font-family: var(--font-inter);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--linkColor);
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+    }
+  }
+  .questionsAndAnswers {
+    margin: 2.4rem auto 0;
+    padding: 0 1rem;
+    max-width: 31.5rem;
+    width: 100%;
+    .faqItem {
+      border-top: 1px solid #d1d5db;
+      z-index: 1;
+      &:first-of-type {
+        border-top: none;
+      }
+      &:last-of-type {
+        border-bottom: 1px solid #d1d5db;
+      }
+      &.opened {
+        margin: 0 0 0 -2rem;
+        padding: 0 2rem 1.6rem;
+        width: calc(100% + 4rem);
+        background-color: #f8f8f5;
+        border-radius: 7px;
+        border: 1px solid #d6d6d6;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        z-index: 2;
+        + .faqItem {
+          border-color: transparent;
+        }
+        .question .questionButton {
+          padding-bottom: 0;
+        }
+      }
+      .question {
+        .questionButton {
+          padding: 1.6rem 0;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          gap: 0 2rem;
+          background-color: transparent;
+          border: none;
+          text-align: left;
+          line-height: 130%;
+          transition: color 0.2s ease;
+          &:hover {
+            .content {
+              color: #000;
+            }
+            .iconWrapper {
+              .plusIcon,
+              .xIcon {
+                color: #171717;
+              }
+            }
+          }
+          .content {
+            font-family: var(--font-inter);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0a0a0a;
+            letter-spacing: -0.01em;
+            line-height: 130%;
+            text-align: left;
+          }
+          .iconWrapper {
+            .plusIcon,
+            .xIcon {
+              height: 1.8rem;
+              width: 1.8rem;
+              color: #4b5563;
+              transition: color 0.2s ease;
+            }
+          }
+        }
+      }
+      .answerWrapper {
+        max-width: 27.7rem;
+        width: 100%;
+        .content {
+          .paragraph,
+          .listItem {
+            font-family: var(--font-inter);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #262626;
+            line-height: 130%;
+            .bold {
+              font-weight: 600;
+              color: #000;
+            }
+          }
+          .paragraph {
+            margin: 1.4rem 0 0;
+            &.note {
+              display: flex;
+              gap: 0 0.5rem;
+              font-size: 1.2rem;
+              font-style: italic;
+            }
+          }
+          .orderedList,
+          .unorderedList {
+            padding-left: 1.6rem;
+            .listItem {
+              margin: 0.8rem 0;
+              font-size: 1.3rem;
+            }
+          }
+          .orderedList {
+            margin: 1.2rem 0 0;
+          }
+          .unorderedList {
+            margin: 0 0 1.5rem;
+            list-style: disc;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .faqs {
+    .description {
+      max-width: 42.8rem;
+    }
+    .questionsAndAnswers {
+      max-width: 52rem;
+      .faqItem {
+        .answerWrapper {
+          max-width: 44.2rem;
+        }
+      }
+    }
+  }
+}
