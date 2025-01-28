@@ -139,6 +139,7 @@
           border: 1px solid #d6d6d6;
           border-radius: 4px;
           font-family: var(--font-inter);
+          font-size: 1.6rem;
         }
         .textArea {
           resize: vertical;
@@ -204,6 +205,21 @@
           flex-direction: row;
           justify-content: space-between;
           gap: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+    .contactUsModal {
+      .contactForm {
+        .formItem {
+          .textInput,
+          .textArea {
+            font-size: 1.4rem;
+          }
         }
       }
     }
