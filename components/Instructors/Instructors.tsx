@@ -9,7 +9,7 @@ const instructors = [
   {
     name: 'Julie Jurss',
     title: 'Certified Driving Instructor',
-    bio: "Julie, is also a certified driver education instructor in the state of Wisconsin. She brings a 30+ year career in the educational field. With her experience she tailors instruction to each student's learning style to help build confidence and skill behind-the-wheel."
+    bio: "Julie is also a certified driver education instructor in the state of Wisconsin. She brings a 30+ year career in the educational field. With her experience she tailors instruction to each student's learning style to help build confidence and skill behind-the-wheel."
   }
 ];
 
