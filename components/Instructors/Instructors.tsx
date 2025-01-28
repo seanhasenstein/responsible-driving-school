@@ -4,7 +4,7 @@ const instructors = [
   {
     name: 'Al Holzheimer',
     title: 'Owner and Certified Driving Instructor',
-    bio: 'Al, owner of RDS, is a certified driver education instructor for the state of Wisconsin with over 25+ years of experience. His patient teaching approach and deep understanding of traffic safety has helped thousands of students become responsible drivers.'
+    bio: 'Al, owner of RDS, is a certified driver education instructor for the state of Wisconsin with over 25+ years of experience. His patient teaching approach and deep understanding of traffic safety has helped hundreds of students become responsible drivers.'
   },
   {
     name: 'Julie Jurss',
