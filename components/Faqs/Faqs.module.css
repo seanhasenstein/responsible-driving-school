@@ -22,7 +22,7 @@
   }
   .description {
     margin: 1.2rem auto 0;
-    max-width: 29.1rem;
+    max-width: 42.8rem;
     width: 100%;
     font-family: var(--font-inter);
     font-size: 1.4rem;
@@ -166,14 +166,6 @@
           }
         }
       }
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .faqs {
-    .description {
-      max-width: 42.8rem;
     }
   }
 }
