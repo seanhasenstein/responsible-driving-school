@@ -1,6 +1,6 @@
 .background {
   position: relative;
-  background-image: url('/background.jpg');
+  background-image: url('/background.webp');
   background-size: 400%;
   background-position: center 5rem;
   background-repeat: no-repeat;

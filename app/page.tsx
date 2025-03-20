@@ -40,7 +40,7 @@ export default function Home() {
       <div className={styles.background}>
         <header className={styles.header}>
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             height={181}
             width={98}
             priority={true}
@@ -90,7 +90,7 @@ export default function Home() {
           </button>
         </div>
         <Image
-          src="/logo.png"
+          src="/logo.webp"
           height={181}
           width={98}
           alt="Responsible Drving School LLC"
