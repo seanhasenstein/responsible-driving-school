@@ -197,19 +197,23 @@ export const questionsAndAnswers = [
       <>
         <p className={styles.paragraph}>
           You must schedule your road test online through the Wisconsin DMV. The website is{' '}
-          <a href="https://wisconsindot.gov/Pages/home.aspx" target="_blank">
+          <a
+            href="https://wisconsindot.gov/Pages/home.aspx"
+            target="_blank"
+            className={styles.link}
+          >
             wisconsindot.gov
           </a>{' '}
           and you can schedule it by searching{' '}
           <i>
-            <u>"schedule a road test appointment"</u>
+            "<u>schedule a road test appointment</u>"
           </i>
           .
         </p>
         <p className={classNames(styles.paragraph, styles.note)}>
           <span>*</span>
           <span>
-            You <b className={styles.bold}>cannot</b> schedule your road test by doing to the DMV
+            You <b className={styles.bold}>cannot</b> schedule your road test by going to the DMV
             office.
           </span>
         </p>
