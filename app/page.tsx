@@ -43,6 +43,7 @@ export default function Home() {
             src="/logo.png"
             height={181}
             width={98}
+            priority={true}
             alt="Responsible Drving School LLC"
             className={styles.logo}
           />
