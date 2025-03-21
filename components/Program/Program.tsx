@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import { ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 import { ArrowRightIcon } from '@heroicons/react/16/solid';
-
 import classNames from 'classnames';
+
+import { createIdNumber } from '@/utils';
 
 import styles from './Program.module.css';
 
@@ -13,7 +15,7 @@ type Program = {
   requirements?: string[];
   standardProgramUrl?: string;
   grantProgramUrl?: string;
-  getStartedUrl?: string;
+  getStartedUrl?: boolean;
 };
 
 interface Props extends Program {
@@ -34,6 +36,8 @@ export default function Program(props: Props) {
     allPrograms
   } = props;
 
+  const [messageId, setMessageId] = useState('');
+
   const isOnlineInstructionOnly = type === 'onlineInstruction';
   const isBehindTheWheelOnly = type === 'behindTheWheel';
   const isSingleProgram = isOnlineInstructionOnly || isBehindTheWheelOnly;
@@ -45,6 +49,10 @@ export default function Program(props: Props) {
   const onlineInstructionRequirements = onlineInstruction?.requirements;
   const behindTheWheelDetails = behindTheWheel?.details;
   const behindTheWheelRequirements = behindTheWheel?.requirements;
+
+  useEffect(() => {
+    setMessageId(createIdNumber());
+  }, []);
 
   return (
     <div className={classNames(styles.program, styles[type])}>
@@ -109,7 +117,7 @@ export default function Program(props: Props) {
           )}
           {getStartedUrl && (
             <a
-              href={getStartedUrl}
+              href={`mailto:seanhasenstein@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryLink}
