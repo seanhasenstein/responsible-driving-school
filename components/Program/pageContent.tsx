@@ -1,7 +1,5 @@
 'use client';
 
-import { createIdNumber } from '@/utils/clientUtils';
-
 export const programs = [
   {
     type: 'onlineInstruction' as const,
@@ -29,7 +27,7 @@ export const programs = [
       'Pass DMV knowledge and sign test.',
       'Receive instruction permit (temps) from DMV prior to first BTW.'
     ],
-    getStartedUrl: `mailto:seanhasenstein@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${createIdNumber()}%5D`
+    getStartedUrl: true
   },
   {
     type: 'both' as const,
