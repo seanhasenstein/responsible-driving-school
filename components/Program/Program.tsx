@@ -117,7 +117,7 @@ export default function Program(props: Props) {
           )}
           {getStartedUrl && (
             <a
-              href={`mailto:seanhasenstein@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
+              href={`mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryLink}
