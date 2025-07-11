@@ -230,7 +230,7 @@
       }
     }
   }
-  &.onlineInstruction {
+  /* &.onlineInstruction {
     grid-area: onlineInstruction;
     &::after {
       background: var(--yellow-gradient);
@@ -262,49 +262,14 @@
         }
       }
     }
-  }
+  } */
   &.behindTheWheel {
     grid-area: behindTheWheel;
-    &::after {
-      background: var(--green-gradient);
-    }
-    .details {
-      margin: 2rem 0 0;
-      .list {
-        .item {
-          .icon {
-            color: var(--green-icon);
-          }
-        }
-      }
-    }
-    .ctas {
-      .primaryLink {
-        background-color: var(--green-button-bg);
-        &:hover {
-          background-color: var(--green-button-hover-bg);
-        }
-      }
-      .secondaryLink {
-        border-color: var(--green-button-bg);
-        &:hover {
-          background-color: var(--green-button-hover-bg);
-          border-color: var(--green-button-hover-bg);
-          color: #fff;
-        }
-      }
-    }
-  }
-  &.both {
-    grid-area: both;
     &::after {
       background: var(--red-gradient);
     }
     .details {
-      margin: 0;
-      .detailTitle {
-        margin: 2.2rem 0 0.8rem;
-      }
+      margin: 2rem 0 0;
       .list {
         .item {
           .icon {
@@ -330,11 +295,46 @@
       }
     }
   }
+  &.both {
+    grid-area: both;
+    &::after {
+      background: var(--green-gradient);
+    }
+    .details {
+      margin: 0;
+      .detailTitle {
+        margin: 2.2rem 0 0.8rem;
+      }
+      .list {
+        .item {
+          .icon {
+            color: var(--green-icon);
+          }
+        }
+      }
+    }
+    .ctas {
+      .primaryLink {
+        background-color: var(--green-button-bg);
+        &:hover {
+          background-color: var(--green-button-hover-bg);
+        }
+      }
+      .secondaryLink {
+        border-color: var(--green-button-bg);
+        &:hover {
+          background-color: var(--green-button-hover-bg);
+          border-color: var(--green-button-hover-bg);
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 1024px) {
   .program {
-    &.onlineInstruction {
+    /* &.onlineInstruction {
       margin-top: 4rem;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -372,12 +372,16 @@
           }
         }
       }
-    }
+    } */
     &.behindTheWheel {
       margin-top: 4rem;
       margin-left: -2px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      &::after,
+      &::before {
+        border-top-left-radius: 0;
+      }
     }
     &.both {
       margin-left: -1px;
@@ -386,10 +390,10 @@
         border-radius: 12px;
       }
       &::after {
-        background: var(--yellow-gradient);
+        /* background: var(--yellow-gradient); */
         border-radius: 12px;
       }
-      .details {
+      /* .details {
         .list {
           .item {
             .icon {
@@ -397,8 +401,8 @@
             }
           }
         }
-      }
-      .ctas {
+      } */
+      /* .ctas {
         .primaryLink {
           color: var(--yellow-button-text);
           background-color: var(--yellow-button-bg);
@@ -414,7 +418,7 @@
             color: var(--yellow-button-text);
           }
         }
-      }
+      } */
     }
   }
 }

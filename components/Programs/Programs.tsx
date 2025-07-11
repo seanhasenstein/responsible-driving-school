@@ -4,16 +4,12 @@ import { programs } from '../Program/pageContent';
 
 import styles from './Programs.module.css';
 
-type Props = {
-  handleGrantProgramClick: () => void;
-};
-
-export default function Programs(props: Props) {
+export default function Programs() {
   return (
     <div className={styles.programs} id="getStarted">
       <div className={styles.grid}>
         {programs.map(program => (
-          <Program key={program.type} {...{ allPrograms: programs, ...program, ...props }} />
+          <Program key={program.type} {...{ allPrograms: programs, ...program }} />
         ))}
       </div>
     </div>
