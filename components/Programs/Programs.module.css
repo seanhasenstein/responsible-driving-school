@@ -22,11 +22,13 @@
 
 @media (min-width: 1024px) {
   .programs {
+    /* margin-left: 33.5rem; */
     .grid {
       align-items: flex-start;
-      width: 100.5rem;
-      grid-template-areas: 'onlineInstruction both behindTheWheel';
-      grid-template-columns: 1fr 1fr 1fr;
+      /* width: 100.5rem;  */
+      width: 67rem;
+      grid-template-areas: 'both behindTheWheel';
+      grid-template-columns: 1fr 1fr;
       gap: 0;
     }
   }

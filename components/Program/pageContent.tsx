@@ -8,7 +8,7 @@ export const programs = [
     details: [
       '30 hour online program.',
       'Take at your own pace and on your own schedule.',
-      'Includes reading information, interactive videos, quzzes, and more.'
+      'Includes reading information, interactive videos, quizzes, and more.'
     ],
     requirements: ['Available for students that are at least 14 and a half.'],
     standardProgramUrl:
@@ -34,8 +34,8 @@ export const programs = [
     title: 'Online Instruction and Behind-The-Wheel',
     price: 420,
     standardProgramUrl:
-      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099',
-    grantProgramUrl:
-      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2100'
+      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099'
+    // grantProgramUrl:
+    //   'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2100'
   }
 ];

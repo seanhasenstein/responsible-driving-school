@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
-import { ArrowRightIcon } from '@heroicons/react/16/solid';
+// import { ArrowRightIcon } from '@heroicons/react/16/solid';
 import classNames from 'classnames';
 
 import { createIdNumber } from '@/utils';
@@ -20,7 +20,7 @@ type Program = {
 
 interface Props extends Program {
   allPrograms: Program[];
-  handleGrantProgramClick: () => void;
+  // handleGrantProgramClick: () => void;
 }
 
 export default function Program(props: Props) {
@@ -31,7 +31,7 @@ export default function Program(props: Props) {
     details,
     requirements,
     standardProgramUrl,
-    grantProgramUrl,
+    // grantProgramUrl,
     getStartedUrl,
     allPrograms
   } = props;
@@ -40,7 +40,7 @@ export default function Program(props: Props) {
 
   const isOnlineInstructionOnly = type === 'onlineInstruction';
   const isBehindTheWheelOnly = type === 'behindTheWheel';
-  const isSingleProgram = isOnlineInstructionOnly || isBehindTheWheelOnly;
+  // const isSingleProgram = isOnlineInstructionOnly || isBehindTheWheelOnly;
 
   const onlineInstruction = allPrograms.find(program => program.type === 'onlineInstruction');
   const behindTheWheel = allPrograms.find(program => program.type === 'behindTheWheel');
@@ -54,6 +54,10 @@ export default function Program(props: Props) {
     setMessageId(createIdNumber());
   }, []);
 
+  if (isOnlineInstructionOnly) {
+    return null;
+  }
+
   return (
     <div className={classNames(styles.program, styles[type])}>
       <div className={styles.header}>
@@ -61,7 +65,7 @@ export default function Program(props: Props) {
         <p className={styles.price}>${price}</p>
       </div>
       <div className={styles.details}>
-        {isSingleProgram ? (
+        {isBehindTheWheelOnly ? (
           <ul className={styles.list}>
             {details?.map(detail => (
               <li key={detail} className={styles.item}>
@@ -100,11 +104,11 @@ export default function Program(props: Props) {
               rel="noopener noreferrer"
               className={styles.primaryLink}
             >
-              Standard program
+              Get started
               <ArrowTopRightOnSquareIcon className={styles.icon} />
             </a>
           )}
-          {grantProgramUrl && (
+          {/* {grantProgramUrl && (
             <a
               href={grantProgramUrl}
               target="_blank"
@@ -114,7 +118,7 @@ export default function Program(props: Props) {
               Grant program
               <ArrowTopRightOnSquareIcon className={styles.icon} />
             </a>
-          )}
+          )} */}
           {getStartedUrl && (
             <a
               href={`mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
@@ -126,7 +130,7 @@ export default function Program(props: Props) {
             </a>
           )}
         </div>
-        {grantProgramUrl ? (
+        {/* {grantProgramUrl ? (
           <button
             type="button"
             onClick={props.handleGrantProgramClick}
@@ -135,13 +139,13 @@ export default function Program(props: Props) {
             Learn about the grant program
             <ArrowRightIcon className={styles.icon} />
           </button>
-        ) : null}
+        ) : null} */}
       </div>
       <div className={styles.requirements}>
         <p className={styles.title}>
           <span className={styles.textWrapper}>Requirements</span>
         </p>
-        {isSingleProgram ? (
+        {isBehindTheWheelOnly ? (
           <ul className={styles.requirementsList}>
             {requirements?.map(requirement => (
               <li key={requirement} className={styles.requirement}>
