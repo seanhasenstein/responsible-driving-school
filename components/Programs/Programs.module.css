@@ -4,7 +4,7 @@
   margin-top: -19rem;
   padding-top: 2.4rem;
   .grid {
-    margin: 3.2rem auto 0;
+    margin: 1.8rem auto 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 'both' 'onlineInstruction' 'behindTheWheel';
