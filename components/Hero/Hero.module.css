@@ -76,6 +76,51 @@
       }
     }
   }
+  .grantProgram {
+    margin: 4rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .text {
+      font-family: var(--font-inter);
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #000;
+      line-height: 130%;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+    .link {
+      margin: 1rem 0 0;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-inter);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0070f3;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      text-align: center;
+      .icon {
+        margin-left: 0.2rem;
+        height: 1.3rem;
+        width: 1.3em;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    .grantProgram {
+      margin-top: 5.6rem;
+      .text,
+      .link {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }
 
 @media (min-width: 1024px) {

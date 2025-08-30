@@ -1,6 +1,8 @@
 'use client';
 
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { ArrowRightIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
+
+import { grantProgramLink } from '@/constants';
 
 import styles from './Hero.module.css';
 
@@ -38,6 +40,13 @@ export default function Hero({ handleContactUsClick }: Props) {
           Contact us
           <ArrowRightIcon className={styles.icon} />
         </button>
+      </div>
+      <div className={styles.grantProgram}>
+        <p className={styles.text}>Do you have a grant program code?</p>
+        <a href={grantProgramLink} target="_blank" className={styles.link}>
+          Access your program
+          <ArrowTopRightOnSquareIcon className={styles.icon} />
+        </a>
       </div>
     </div>
   );
