@@ -123,6 +123,13 @@
         margin: 2rem 0 0;
         display: grid;
         grid-template-columns: 1fr;
+        &.websiteField {
+          position: absolute;
+          left: -9999px;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        }
         .label {
           font-family: var(--font-inter);
           font-size: 1.2rem;
