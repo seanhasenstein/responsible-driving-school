@@ -4,6 +4,7 @@ import React from 'react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import classNames from 'classnames';
 
 import Modal from '../Modal';
 import ContactUsSuccess from '@/components/ContactUsSuccess';
@@ -37,11 +38,17 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
         message: 'Invalid phone number'
       })
       .required('Phone is required'),
-    message: Yup.string().required('Message is required')
+    message: Yup.string().required('Message is required'),
+    website: Yup.string()
   });
 
   const handleSubmit = (values: ContactMessage) => {
     setStatus('loading');
+
+    if (values.website) {
+      setStatus('success');
+      return;
+    }
 
     fetch('/api/contact', {
       method: 'POST',
@@ -139,7 +146,8 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
                 name: '',
                 email: '',
                 phone: '',
-                message: ''
+                message: '',
+                website: ''
               }}
               validationSchema={validationSchema}
               onSubmit={handleSubmit}
@@ -185,6 +193,27 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
                     <Field id="message" name="message" as="textarea" className={styles.textArea} />
                     <ErrorMessage
                       name="message"
+                      component="div"
+                      className={styles.validationError}
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className={classNames(styles.formItem, styles.websiteField)}
+                  >
+                    <label htmlFor="website" className={styles.label}>
+                      Website
+                    </label>
+                    <Field
+                      id="website"
+                      name="website"
+                      type="text"
+                      tabIndex="-1"
+                      autoComplete="off"
+                      className={styles.textInput}
+                    />
+                    <ErrorMessage
+                      name="website"
                       component="div"
                       className={styles.validationError}
                     />

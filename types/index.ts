@@ -3,4 +3,5 @@ export type ContactMessage = {
   email: string;
   phone: string;
   message: string;
+  website?: string;
 };
