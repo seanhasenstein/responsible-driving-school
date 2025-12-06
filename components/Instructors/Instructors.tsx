@@ -22,7 +22,7 @@ export default function Instructors() {
           <div key={instructor.name} className={styles.instructor}>
             <p className={styles.bio}>{instructor.bio}</p>
             <div className={styles.details}>
-              <span className={styles.image} />
+              {/* <span className={styles.image} /> */}
               <div>
                 <p className={styles.name}>{instructor.name}</p>
                 <p className={styles.title}>{instructor.title}</p>
