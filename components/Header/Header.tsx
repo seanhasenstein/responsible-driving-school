@@ -7,8 +7,8 @@ export default function Header() {
     <header className={styles.header}>
       <Image
         src="/logo.webp"
-        height={181}
-        width={98}
+        height={121}
+        width={224}
         priority={true}
         alt="Responsible Drving School LLC"
         className={styles.logo}
