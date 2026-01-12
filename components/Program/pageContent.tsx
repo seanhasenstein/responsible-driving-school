@@ -19,7 +19,7 @@ export const programs = [
   {
     type: 'behindTheWheel' as const,
     title: 'Behind-The-Wheel only',
-    price: 380,
+    price: 400,
     details: ['6 hours of behind-the-wheel.', '6 hours of observation instruction.'],
     requirements: [
       'Available for students that are at least 15.',
@@ -32,7 +32,7 @@ export const programs = [
   {
     type: 'both' as const,
     title: 'Online Instruction and Behind-The-Wheel',
-    price: 420,
+    price: 450,
     standardProgramUrl:
       'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099'
     // grantProgramUrl:
