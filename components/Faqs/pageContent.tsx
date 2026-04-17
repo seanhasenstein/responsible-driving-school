@@ -200,6 +200,7 @@ export const questionsAndAnswers = [
           <a
             href="https://wisconsindot.gov/Pages/home.aspx"
             target="_blank"
+            rel="noopener noreferrer"
             className={styles.link}
           >
             wisconsindot.gov

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 // import { ArrowRightIcon } from '@heroicons/react/16/solid';
 import classNames from 'classnames';
@@ -36,8 +35,6 @@ export default function Program(props: Props) {
     allPrograms
   } = props;
 
-  const [messageId, setMessageId] = useState('');
-
   const isOnlineInstructionOnly = type === 'onlineInstruction';
   const isBehindTheWheelOnly = type === 'behindTheWheel';
   // const isSingleProgram = isOnlineInstructionOnly || isBehindTheWheelOnly;
@@ -50,9 +47,10 @@ export default function Program(props: Props) {
   const behindTheWheelDetails = behindTheWheel?.details;
   const behindTheWheelRequirements = behindTheWheel?.requirements;
 
-  useEffect(() => {
-    setMessageId(createIdNumber());
-  }, []);
+  const handleGetStartedClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const id = createIdNumber();
+    e.currentTarget.href = `mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquiry%20%5B${id}%5D`;
+  };
 
   if (isOnlineInstructionOnly) {
     return null;
@@ -121,7 +119,8 @@ export default function Program(props: Props) {
           )} */}
           {getStartedUrl && (
             <a
-              href={`mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
+              href="mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquiry"
+              onClick={handleGetStartedClick}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryLink}

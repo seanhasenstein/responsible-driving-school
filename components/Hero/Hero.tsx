@@ -43,7 +43,12 @@ export default function Hero({ handleContactUsClick }: Props) {
       </div>
       <div className={styles.grantProgram}>
         <p className={styles.text}>Do you have a grant program code?</p>
-        <a href={grantProgramLink} target="_blank" className={styles.link}>
+        <a
+          href={grantProgramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+        >
           Access your program
           <ArrowTopRightOnSquareIcon className={styles.icon} />
         </a>

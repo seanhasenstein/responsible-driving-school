@@ -43,7 +43,7 @@ export default function Footer({ handleContactUsClick }: Props) {
         src="/logo.webp"
         height={121}
         width={224}
-        alt="Responsible Drving School LLC"
+        alt="Responsible Driving School LLC"
         className={styles.logo}
       />
       <p className={styles.copyright}>

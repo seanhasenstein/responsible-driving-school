@@ -10,7 +10,7 @@ export default function Header() {
         height={121}
         width={224}
         priority={true}
-        alt="Responsible Drving School LLC"
+        alt="Responsible Driving School LLC"
         className={styles.logo}
       />
       <a

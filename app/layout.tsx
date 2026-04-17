@@ -11,7 +11,7 @@ const interSans = Inter({
 export const metadata: Metadata = {
   title: 'Responsible Driving School | Certified Drivers Education in Sheboygan County',
   description:
-    "One of Sheboygan County's to driver education programs, with 25+ years of online drivers education instruction and behind-the-wheel training."
+    "One of Sheboygan County's top driver education programs, with 25+ years of online drivers education instruction and behind-the-wheel training."
 };
 
 export default function RootLayout({
