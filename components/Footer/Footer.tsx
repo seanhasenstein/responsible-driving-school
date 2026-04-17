@@ -1,12 +1,14 @@
+'use client';
+
 import Image from 'next/image';
+
+import { useContactModal } from '@/components/ContactModalProvider';
 
 import styles from './Footer.module.css';
 
-type Props = {
-  handleContactUsClick: () => void;
-};
+export default function Footer() {
+  const { open: handleContactUsClick } = useContactModal();
 
-export default function Footer({ handleContactUsClick }: Props) {
   const handleGetStartedClick = () => {
     const getStartedSection = document.getElementById('getStarted');
     if (getStartedSection) {
@@ -17,7 +19,7 @@ export default function Footer({ handleContactUsClick }: Props) {
   return (
     <footer className={styles.footer}>
       <div className={styles.contactCta}>
-        <h4 className={styles.title}>Do you still have questions?</h4>
+        <h2 className={styles.title}>Do you still have questions?</h2>
         <div className={styles.description}>
           Please, don't hesitate to{' '}
           <button type="button" onClick={handleContactUsClick} className={styles.contactBtn}>
@@ -43,7 +45,7 @@ export default function Footer({ handleContactUsClick }: Props) {
         src="/logo.webp"
         height={121}
         width={224}
-        alt="Responsible Drving School LLC"
+        alt="Responsible Driving School LLC"
         className={styles.logo}
       />
       <p className={styles.copyright}>

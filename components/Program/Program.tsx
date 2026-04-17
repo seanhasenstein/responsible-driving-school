@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+'use client';
+
 import { ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
-// import { ArrowRightIcon } from '@heroicons/react/16/solid';
 import classNames from 'classnames';
 
 import { createIdNumber } from '@/utils';
@@ -14,13 +14,11 @@ type Program = {
   details?: string[];
   requirements?: string[];
   standardProgramUrl?: string;
-  grantProgramUrl?: string;
   getStartedUrl?: boolean;
 };
 
 interface Props extends Program {
   allPrograms: Program[];
-  // handleGrantProgramClick: () => void;
 }
 
 export default function Program(props: Props) {
@@ -31,16 +29,12 @@ export default function Program(props: Props) {
     details,
     requirements,
     standardProgramUrl,
-    // grantProgramUrl,
     getStartedUrl,
     allPrograms
   } = props;
 
-  const [messageId, setMessageId] = useState('');
-
   const isOnlineInstructionOnly = type === 'onlineInstruction';
   const isBehindTheWheelOnly = type === 'behindTheWheel';
-  // const isSingleProgram = isOnlineInstructionOnly || isBehindTheWheelOnly;
 
   const onlineInstruction = allPrograms.find(program => program.type === 'onlineInstruction');
   const behindTheWheel = allPrograms.find(program => program.type === 'behindTheWheel');
@@ -50,9 +44,10 @@ export default function Program(props: Props) {
   const behindTheWheelDetails = behindTheWheel?.details;
   const behindTheWheelRequirements = behindTheWheel?.requirements;
 
-  useEffect(() => {
-    setMessageId(createIdNumber());
-  }, []);
+  const handleGetStartedClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const id = createIdNumber();
+    e.currentTarget.href = `mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquiry%20%5B${id}%5D`;
+  };
 
   if (isOnlineInstructionOnly) {
     return null;
@@ -108,20 +103,10 @@ export default function Program(props: Props) {
               <ArrowTopRightOnSquareIcon className={styles.icon} />
             </a>
           )}
-          {/* {grantProgramUrl && (
-            <a
-              href={grantProgramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondaryLink}
-            >
-              Grant program
-              <ArrowTopRightOnSquareIcon className={styles.icon} />
-            </a>
-          )} */}
           {getStartedUrl && (
             <a
-              href={`mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquery%20%5B${messageId}%5D`}
+              href="mailto:al.rdsllc@gmail.com?subject=Behind-the-Wheel%20Inquiry"
+              onClick={handleGetStartedClick}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryLink}
@@ -130,16 +115,6 @@ export default function Program(props: Props) {
             </a>
           )}
         </div>
-        {/* {grantProgramUrl ? (
-          <button
-            type="button"
-            onClick={props.handleGrantProgramClick}
-            className={styles.grantProgramToggleBtn}
-          >
-            Learn about the grant program
-            <ArrowRightIcon className={styles.icon} />
-          </button>
-        ) : null} */}
       </div>
       <div className={styles.requirements}>
         <p className={styles.title}>

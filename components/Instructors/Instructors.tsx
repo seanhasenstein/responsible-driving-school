@@ -16,7 +16,7 @@ const instructors = [
 export default function Instructors() {
   return (
     <div className={styles.instructors}>
-      <h3 className={styles.title}>Meet our instructors</h3>
+      <h2 className={styles.title}>Meet our instructors</h2>
       <div className={styles.grid}>
         {instructors.map(instructor => (
           <div key={instructor.name} className={styles.instructor}>

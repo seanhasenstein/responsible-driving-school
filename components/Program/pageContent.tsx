@@ -1,5 +1,3 @@
-'use client';
-
 export const programs = [
   {
     type: 'onlineInstruction' as const,
@@ -12,9 +10,7 @@ export const programs = [
     ],
     requirements: ['Available for students that are at least 14 and a half.'],
     standardProgramUrl:
-      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099',
-    grantProgramUrl:
-      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2100'
+      'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099'
   },
   {
     type: 'behindTheWheel' as const,
@@ -35,7 +31,5 @@ export const programs = [
     price: 450,
     standardProgramUrl:
       'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2099'
-    // grantProgramUrl:
-    //   'https://auth.drivingschoolgm.com/account/studentRegistration?appid=responsible-driving-school&product=2100'
   }
 ];

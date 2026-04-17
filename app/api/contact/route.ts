@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !phone || !message) {
       return NextResponse.json(
         { error: { message: 'Missing required fields.', code: 'MISSING_FIELDS' } },
-        { status: 404 }
+        { status: 400 }
       );
     }
 
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     const id = createIdNumber();
 
-    const sendRes = await sendEmail({
+    await sendEmail({
       to: process.env.CONTACT_FORM_TO,
       bcc: process.env.CONTACT_FORM_BCC,
       from: process.env.CONTACT_FORM_FROM,
@@ -60,9 +60,6 @@ export async function POST(req: NextRequest) {
         newMessageInput.email
       }\nPhone: ${formatPhoneNumber(newMessageInput.phone)}\n\nMessage:\n${newMessageInput.message}`
     });
-
-    console.log(`Contact form email sent [${id}]`);
-    console.log(sendRes);
 
     return NextResponse.json({ message: 'Message sent successfully.' });
   } catch (error: unknown) {

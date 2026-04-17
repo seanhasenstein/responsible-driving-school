@@ -1,8 +1,8 @@
-import { mongoClientPromise } from './connect';
+import { getMongoClientPromise } from './connect';
 import * as contactMessage from './contactMessage';
 
 async function connectToDb() {
-  const client = await mongoClientPromise;
+  const client = await getMongoClientPromise();
   return client.db();
 }
 

@@ -3,14 +3,13 @@
 import { ArrowRightIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 
 import { grantProgramLink } from '@/constants';
+import { useContactModal } from '@/components/ContactModalProvider';
 
 import styles from './Hero.module.css';
 
-type Props = {
-  handleContactUsClick: () => void;
-};
+export default function Hero() {
+  const { open: handleContactUsClick } = useContactModal();
 
-export default function Hero({ handleContactUsClick }: Props) {
   const handleFaqsClick = () => {
     const faqsSection = document.getElementById('faqs');
     if (faqsSection) {
@@ -20,18 +19,18 @@ export default function Hero({ handleContactUsClick }: Props) {
 
   return (
     <div className={styles.hero}>
-      <h2 className={styles.primaryTitle}>
+      <h1 className={styles.primaryTitle}>
         Teaching Safe Habits for
         <br />
         <span className={styles.italic}>Responsible Driving</span>
-      </h2>
-      <h3 className={styles.secondaryTitle}>
+      </h1>
+      <h2 className={styles.secondaryTitle}>
         Welcome to one of Sheboygan County's <br className={styles.lineBreak} />
         top driver education programs, with 25+ years
         <br className={styles.lineBreak} /> of{' '}
         <span className={styles.underline}>online drivers education instruction</span> and{' '}
         <span className={styles.underline}>behind-the-wheel training</span>.
-      </h3>
+      </h2>
       <div className={styles.actions}>
         <button type="button" className={styles.primaryButton} onClick={handleFaqsClick}>
           FAQs
@@ -43,7 +42,12 @@ export default function Hero({ handleContactUsClick }: Props) {
       </div>
       <div className={styles.grantProgram}>
         <p className={styles.text}>Do you have a grant program code?</p>
-        <a href={grantProgramLink} target="_blank" className={styles.link}>
+        <a
+          href={grantProgramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+        >
           Access your program
           <ArrowTopRightOnSquareIcon className={styles.icon} />
         </a>
