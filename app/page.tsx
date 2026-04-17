@@ -11,21 +11,15 @@ const Faqs = dynamic(() => import('@/components/Faqs'));
 const Instructors = dynamic(() => import('@/components/Instructors'));
 const Footer = dynamic(() => import('@/components/Footer'));
 const ContactUsModal = dynamic(() => import('@/components/Modals/ContactUsModal'));
-// const GrantProgramModal = dynamic(() => import('@/components/Modals/GrantProgramModal'));
 
 import styles from './page.module.css';
 
 export default function Home() {
   const [isContactModalVisible, setIsContactModalVisible] = React.useState(false);
-  // const [isGrantModalVisible, setIsGrantModalVisible] = React.useState(false);
 
   const handleContactUsClick = () => {
     setIsContactModalVisible(true);
   };
-
-  // const handleGrantProgramClick = () => {
-  //   setIsGrantModalVisible(true);
-  // };
 
   const handleIsContactModalVisible = (isVisible: boolean) => {
     setIsContactModalVisible(isVisible);
@@ -44,9 +38,6 @@ export default function Home() {
       <ContactUsModal
         {...{ isVisible: isContactModalVisible, setIsVisible: handleIsContactModalVisible }}
       />
-      {/* <GrantProgramModal
-        {...{ isVisible: isGrantModalVisible, setIsVisible: setIsGrantModalVisible }}
-      /> */}
     </div>
   );
 }

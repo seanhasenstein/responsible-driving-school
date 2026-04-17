@@ -11,7 +11,5 @@ export async function createContactMessage(db: Db, contactMessage: ContactMessag
     .collection<ContactMessage>('contactFormMessages')
     .insertOne(contactMessageInput);
   const result = { id: createdMessage.insertedId, contactMessage };
-  console.log(`New contact message created: ${result.id}`);
-  console.log(result);
   return result;
 }
