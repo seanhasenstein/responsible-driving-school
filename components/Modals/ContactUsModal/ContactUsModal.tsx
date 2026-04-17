@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext, FormikErrors } from 'formik';
 import * as Yup from 'yup';
-import classNames from 'classnames';
 
 import Modal from '../Modal';
 import ContactUsSuccess from '@/components/ContactUsSuccess';
@@ -18,6 +17,33 @@ import { ContactMessage } from '@/types';
 
 import styles from './ContactUsModal.module.css';
 
+const FIELD_ORDER: (keyof ContactMessage)[] = ['name', 'email', 'phone', 'message'];
+
+function ScrollToFirstError() {
+  const { errors, submitCount, isValidating } = useFormikContext<ContactMessage>();
+  const lastHandledSubmitCount = React.useRef(0);
+
+  React.useEffect(() => {
+    if (submitCount === 0 || isValidating) return;
+    if (submitCount === lastHandledSubmitCount.current) return;
+    lastHandledSubmitCount.current = submitCount;
+
+    const firstErrorField = FIELD_ORDER.find(
+      field => (errors as FormikErrors<ContactMessage>)[field]
+    );
+    if (!firstErrorField) return;
+
+    const el = document.getElementById(firstErrorField);
+    if (!el) return;
+
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.focus({ preventScroll: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitCount, isValidating]);
+
+  return null;
+}
+
 type Props = {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
@@ -29,8 +55,16 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
   const phoneRef = React.useRef<HTMLInputElement>(null);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
+    name: Yup.string()
+      .trim()
+      .min(2, 'Name is too short')
+      .max(100, 'Name is too long')
+      .required('Name is required'),
+    email: Yup.string()
+      .trim()
+      .email('Invalid email')
+      .max(254, 'Email is too long')
+      .required('Email is required'),
     phone: Yup.string()
       .transform(v => removeNonDigits(v))
       .matches(new RegExp(/^\d{10}$/), {
@@ -38,17 +72,20 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
         message: 'Invalid phone number'
       })
       .required('Phone is required'),
-    message: Yup.string().required('Message is required'),
-    website: Yup.string()
+    message: Yup.string()
+      .trim()
+      .max(2000, 'Message is too long')
+      .test(
+        'two-words',
+        'Please enter a complete message',
+        value => !!value && value.trim().split(/\s+/).filter(Boolean).length >= 2
+      )
+      .required('Message is required'),
+    hpField: Yup.string()
   });
 
   const handleSubmit = (values: ContactMessage) => {
     setStatus('loading');
-
-    if (values.website) {
-      setStatus('success');
-      return;
-    }
 
     fetch('/api/contact', {
       method: 'POST',
@@ -147,13 +184,14 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
                 email: '',
                 phone: '',
                 message: '',
-                website: ''
+                hpField: ''
               }}
               validationSchema={validationSchema}
               onSubmit={handleSubmit}
             >
               {() => (
                 <Form>
+                  <ScrollToFirstError />
                   <div className={styles.formItem}>
                     <label htmlFor="name" className={styles.label}>
                       Name
@@ -197,25 +235,14 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
                       className={styles.validationError}
                     />
                   </div>
-                  <div
-                    aria-hidden="true"
-                    className={classNames(styles.formItem, styles.websiteField)}
-                  >
-                    <label htmlFor="website" className={styles.label}>
-                      Website
-                    </label>
+                  <div aria-hidden="true" className={styles.hpField}>
+                    <label htmlFor="hpField">Do not fill this out</label>
                     <Field
-                      id="website"
-                      name="website"
+                      id="hpField"
+                      name="hpField"
                       type="text"
-                      tabIndex="-1"
+                      tabIndex={-1}
                       autoComplete="off"
-                      className={styles.textInput}
-                    />
-                    <ErrorMessage
-                      name="website"
-                      component="div"
-                      className={styles.validationError}
                     />
                   </div>
                   <button
