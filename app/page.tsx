@@ -1,43 +1,26 @@
-'use client';
-
-import React from 'react';
-import dynamic from 'next/dynamic';
-
+import ContactModalProvider from '@/components/ContactModalProvider';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Programs from '@/components/Programs';
-
-const Faqs = dynamic(() => import('@/components/Faqs'));
-const Instructors = dynamic(() => import('@/components/Instructors'));
-const Footer = dynamic(() => import('@/components/Footer'));
-const ContactUsModal = dynamic(() => import('@/components/Modals/ContactUsModal'));
+import Faqs from '@/components/Faqs';
+import Instructors from '@/components/Instructors';
+import Footer from '@/components/Footer';
 
 import styles from './page.module.css';
 
 export default function Home() {
-  const [isContactModalVisible, setIsContactModalVisible] = React.useState(false);
-
-  const handleContactUsClick = () => {
-    setIsContactModalVisible(true);
-  };
-
-  const handleIsContactModalVisible = (isVisible: boolean) => {
-    setIsContactModalVisible(isVisible);
-  };
-
   return (
-    <div>
-      <div className={styles.background}>
-        <Header />
-        <Hero {...{ handleContactUsClick }} />
+    <ContactModalProvider>
+      <div>
+        <div className={styles.background}>
+          <Header />
+          <Hero />
+        </div>
+        <Programs />
+        <Faqs />
+        <Instructors />
+        <Footer />
       </div>
-      <Programs />
-      <Faqs {...{ handleContactUsClick }} />
-      <Instructors />
-      <Footer {...{ handleContactUsClick }} />
-      <ContactUsModal
-        {...{ isVisible: isContactModalVisible, setIsVisible: handleIsContactModalVisible }}
-      />
-    </div>
+    </ContactModalProvider>
   );
 }

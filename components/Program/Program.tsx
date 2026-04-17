@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 import classNames from 'classnames';
 

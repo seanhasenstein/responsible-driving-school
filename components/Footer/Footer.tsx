@@ -1,12 +1,14 @@
+'use client';
+
 import Image from 'next/image';
+
+import { useContactModal } from '@/components/ContactModalProvider';
 
 import styles from './Footer.module.css';
 
-type Props = {
-  handleContactUsClick: () => void;
-};
+export default function Footer() {
+  const { open: handleContactUsClick } = useContactModal();
 
-export default function Footer({ handleContactUsClick }: Props) {
   const handleGetStartedClick = () => {
     const getStartedSection = document.getElementById('getStarted');
     if (getStartedSection) {

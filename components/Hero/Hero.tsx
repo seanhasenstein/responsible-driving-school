@@ -3,14 +3,13 @@
 import { ArrowRightIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 
 import { grantProgramLink } from '@/constants';
+import { useContactModal } from '@/components/ContactModalProvider';
 
 import styles from './Hero.module.css';
 
-type Props = {
-  handleContactUsClick: () => void;
-};
+export default function Hero() {
+  const { open: handleContactUsClick } = useContactModal();
 
-export default function Hero({ handleContactUsClick }: Props) {
   const handleFaqsClick = () => {
     const faqsSection = document.getElementById('faqs');
     if (faqsSection) {

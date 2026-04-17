@@ -4,15 +4,14 @@ import React from 'react';
 import classNames from 'classnames';
 import { PlusIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid';
 
+import { useContactModal } from '@/components/ContactModalProvider';
+
 import { questionsAndAnswers } from './pageContent';
 
 import styles from './Faqs.module.css';
 
-type Props = {
-  handleContactUsClick: () => void;
-};
-
-export default function Faqs({ handleContactUsClick }: Props) {
+export default function Faqs() {
+  const { open: handleContactUsClick } = useContactModal();
   const [openedIndex, setOpenedIndex] = React.useState(-1);
 
   const handleClick = (index: number) => {

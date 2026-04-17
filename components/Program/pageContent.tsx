@@ -1,5 +1,3 @@
-'use client';
-
 export const programs = [
   {
     type: 'onlineInstruction' as const,
