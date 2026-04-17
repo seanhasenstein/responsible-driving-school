@@ -20,18 +20,18 @@ export default function Hero({ handleContactUsClick }: Props) {
 
   return (
     <div className={styles.hero}>
-      <h2 className={styles.primaryTitle}>
+      <h1 className={styles.primaryTitle}>
         Teaching Safe Habits for
         <br />
         <span className={styles.italic}>Responsible Driving</span>
-      </h2>
-      <h3 className={styles.secondaryTitle}>
+      </h1>
+      <h2 className={styles.secondaryTitle}>
         Welcome to one of Sheboygan County's <br className={styles.lineBreak} />
         top driver education programs, with 25+ years
         <br className={styles.lineBreak} /> of{' '}
         <span className={styles.underline}>online drivers education instruction</span> and{' '}
         <span className={styles.underline}>behind-the-wheel training</span>.
-      </h3>
+      </h2>
       <div className={styles.actions}>
         <button type="button" className={styles.primaryButton} onClick={handleFaqsClick}>
           FAQs

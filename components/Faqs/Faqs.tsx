@@ -26,7 +26,7 @@ export default function Faqs({ handleContactUsClick }: Props) {
   return (
     <div className={styles.faqs} id="faqs">
       <QuestionMarkCircleIcon className={styles.questionIcon} />
-      <h3 className={styles.title}>Frequently asked questions</h3>
+      <h2 className={styles.title}>Frequently asked questions</h2>
       <div className={styles.description}>
         Here are some questions that we get asked often. If you don't see what you're looking for,
         please don't hesitate to{' '}
