@@ -27,12 +27,21 @@ export const metadata: Metadata = {
     siteName,
     title,
     description,
-    locale: 'en_US'
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: siteName
+      }
+    ]
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title,
-    description
+    description,
+    images: ['/og-image.jpg']
   },
   robots: {
     index: true,
