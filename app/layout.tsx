@@ -10,7 +10,7 @@ const interSans = Inter({
 
 const siteUrl = 'https://www.driveresponsible.com';
 const siteName = 'Responsible Driving School';
-const title = 'Responsible Driving School | Certified Drivers Education in Sheboygan County';
+const title = 'Responsible Driving School | Drivers Ed in Sheboygan County';
 const description =
   "One of Sheboygan County's top driver education programs, with 25+ years of online drivers education instruction and behind-the-wheel training.";
 
