@@ -51,6 +51,7 @@ type Props = {
 
 export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [referenceId, setReferenceId] = React.useState<string | null>(null);
 
   const phoneRef = React.useRef<HTMLInputElement>(null);
 
@@ -94,13 +95,14 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
       },
       body: JSON.stringify(values)
     })
-      .then(response => {
+      .then(async response => {
         if (!response.ok) {
           setStatus('error');
           throw new Error('Failed to send message');
-        } else {
-          setStatus('success');
         }
+        const data = await response.json().catch(() => ({}));
+        setReferenceId(typeof data?.id === 'string' ? data.id : null);
+        setStatus('success');
       })
       .catch(error => {
         console.log(error);
@@ -125,12 +127,15 @@ export default function ContactUsModal({ isVisible, setIsVisible }: Props) {
   React.useEffect(() => {
     if (!isVisible) {
       setStatus('idle');
+      setReferenceId(null);
     }
   }, [isVisible]);
 
   return (
     <Modal {...{ isVisible, customModalClassName: styles.modal, closeModal, disableOutsideClick }}>
-      {status === 'success' ? <ContactUsSuccess {...{ closeModal }} /> : null}
+      {status === 'success' ? (
+        <ContactUsSuccess {...{ closeModal, referenceId, onFaqClick: handleFaqClick }} />
+      ) : null}
       {status === 'error' ? <ContactUsError {...{ closeModal }} /> : null}
       {status !== 'success' && status !== 'error' ? (
         <div className={styles.contactUsModal}>

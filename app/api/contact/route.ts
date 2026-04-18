@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
 
     console.log('[contact] message_sent', { id });
 
-    return NextResponse.json({ message: 'Message sent successfully.' });
+    return NextResponse.json({ message: 'Message sent successfully.', id });
   } catch (error: unknown) {
     console.error(error);
     return NextResponse.json(
