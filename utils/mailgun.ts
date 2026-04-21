@@ -1,9 +1,4 @@
-import * as dotenv from 'dotenv';
-import fetch, { FormData } from 'node-fetch';
-
-import { mailgunAuthToken } from '../constants/mailgun';
-
-dotenv.config();
+import { getMailgunAuthToken, getMailgunDomain } from '../constants/mailgun';
 
 interface SendEmailInput {
   to: string;
@@ -27,7 +22,7 @@ export async function sendEmail({
   attachment
 }: SendEmailInput) {
   const form = new FormData();
-  const endpoint = `https://api.mailgun.net/v3/${process.env.MAILGUN_DOMAIN}/messages`;
+  const endpoint = `https://api.mailgun.net/v3/${getMailgunDomain()}/messages`;
 
   form.append('to', to);
   form.append('from', from);
@@ -43,11 +38,15 @@ export async function sendEmail({
     method: 'POST',
     body: form,
     headers: {
-      Authorization: mailgunAuthToken
+      Authorization: getMailgunAuthToken()
     }
   });
 
   const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(`Mailgun send failed (${response.status}): ${JSON.stringify(data)}`);
+  }
 
   return data;
 }
